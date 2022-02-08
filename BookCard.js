@@ -14,7 +14,7 @@ class BookCard extends HTMLElement {
     clonedElem.querySelector('.container > .title').textContent = this.getAttribute('title')
     clonedElem.querySelector('.container > .desc').textContent = this.getAttribute('desc')
     clonedElem.querySelector('.container > .price').textContent = `￥${this.getAttribute('price')}`
-    clonedElem.querySelector('.container > .buy-btn').addEventListener('click', this.buy)
+    clonedElem.querySelector('.container > .action').addEventListener('click', this.buy)
 
     this.shadowRoot.appendChild(clonedElem)
   }
