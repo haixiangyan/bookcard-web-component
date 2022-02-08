@@ -5,6 +5,8 @@ class BookCard extends HTMLElement {
   }
 
   render() {
+    this.attachShadow({ mode: 'open' })
+
     const templateElem = document.getElementById('book-card-template')
     const clonedElem = templateElem.content.cloneNode(true)
 
@@ -12,8 +14,14 @@ class BookCard extends HTMLElement {
     clonedElem.querySelector('.container > .title').textContent = this.getAttribute('title')
     clonedElem.querySelector('.container > .desc').textContent = this.getAttribute('desc')
     clonedElem.querySelector('.container > .price').textContent = `￥${this.getAttribute('price')}`
+    clonedElem.querySelector('.container > .buy-btn').addEventListener('click', this.buy)
 
-    this.appendChild(clonedElem)
+    this.shadowRoot.appendChild(clonedElem)
+  }
+
+  // 要用箭头函数将 this 直接绑定到 BookCard 上
+  buy = () => {
+    alert('购买成功')
   }
 }
 
