@@ -23,7 +23,7 @@ class BookCard extends HTMLElement {
 
   // 要用箭头函数将 this 直接绑定到 BookCard 上
   buy = () => {
-    alert('购买成功')
+    alert('YooHoo!!')
   }
 }
 
