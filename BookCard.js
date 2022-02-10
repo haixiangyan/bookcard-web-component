@@ -1,3 +1,5 @@
+const prefix = 'data-'
+
 class BookCard extends HTMLElement {
   constructor() {
     super();
@@ -10,10 +12,10 @@ class BookCard extends HTMLElement {
     const templateElem = document.getElementById('book-card-template')
     const clonedElem = templateElem.content.cloneNode(true)
 
-    clonedElem.querySelector('.container > .image').src = this.getAttribute('image')
-    clonedElem.querySelector('.container > .title').textContent = this.getAttribute('title')
-    clonedElem.querySelector('.container > .desc').textContent = this.getAttribute('desc')
-    clonedElem.querySelector('.container > .price').textContent = `￥${this.getAttribute('price')}`
+    clonedElem.querySelector('.container > .image').src = this.getAttribute(`${prefix}image`)
+    clonedElem.querySelector('.container > .title').textContent = this.getAttribute(`${prefix}title`)
+    clonedElem.querySelector('.container > .desc').textContent = this.getAttribute(`${prefix}desc`)
+    clonedElem.querySelector('.container > .price').textContent = `￥${this.getAttribute(`${prefix}price`)}`
     clonedElem.querySelector('.container > .action').addEventListener('click', this.buy)
 
     this.shadowRoot.appendChild(clonedElem)
